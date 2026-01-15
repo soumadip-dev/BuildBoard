@@ -5,7 +5,7 @@
 </p>
 
 <div align="center">
-  <img src="https://github.com/soumadip-dev/InkBit/blob/main/public/banner.png" alt="Banner" width="900">
+  <img src="./public/banner.png" alt="Banner" width="900">
 </div>
 
 ---
