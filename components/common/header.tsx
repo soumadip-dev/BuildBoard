@@ -1,15 +1,9 @@
-import {
-  CompassIcon,
-  HomeIcon,
-  LoaderIcon,
-  SparkleIcon,
-  SparklesIcon,
-  UserIcon,
-} from 'lucide-react';
+import { CompassIcon, HomeIcon, LoaderIcon, SparkleIcon, SparklesIcon } from 'lucide-react';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { Button } from '../ui/button';
 import { ThemeToggle } from './theme-toggle';
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
 
 const Logo = () => {
   return (
@@ -25,8 +19,6 @@ const Logo = () => {
 };
 
 export default function Header() {
-  const isSignedIn = false;
-
   return (
     <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="wrapper px-4 sm:px-6 md:px-12">
@@ -58,27 +50,28 @@ export default function Header() {
                 </div>
               }
             >
-              {isSignedIn ? (
-                <>
-                  <Button asChild size="sm" className="hidden sm:inline-flex">
-                    <Link href="/submit">
-                      <SparklesIcon className="size-4" />
-                      <span className="hidden sm:inline ml-2">Submit Project</span>
-                    </Link>
-                  </Button>
-                  <Button variant="ghost" size="sm">
-                    <UserIcon className="size-4" />
-                  </Button>
-                </>
-              ) : (
-                <>
-                  <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
+              <SignedOut>
+                <SignInButton>
+                  <Button variant="ghost" className="hidden sm:inline-flex">
                     Sign In
                   </Button>
+                </SignInButton>
+                <SignUpButton>
                   <Button size="sm">Sign Up</Button>
-                </>
-              )}
+                </SignUpButton>
+              </SignedOut>
+              <SignedIn>
+                <Button asChild size="sm" className="hidden sm:inline-flex">
+                  <Link href="/submit">
+                    <SparklesIcon className="size-4" />
+                    <span className="hidden sm:inline ml-2">Submit Project</span>
+                  </Link>
+                </Button>
+                <UserButton />
+                {/* <CustomUserButton /> */}
+              </SignedIn>
             </Suspense>
+
             <ThemeToggle />
           </div>
         </div>

@@ -4,6 +4,7 @@ import './globals.css';
 import Footer from '@/components/common/footer';
 import Header from '@/components/common/header';
 import { ThemeProvider } from '@/components/theme-provider';
+import { ClerkProvider } from '@clerk/nextjs';
 const outfit = Outfit({
   subsets: ['latin'],
 });
@@ -79,19 +80,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${outfit.className} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          {children}
-          <Footer />
-        </ThemeProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${outfit.className} antialiased`}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            {children}
+            <Footer />
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
