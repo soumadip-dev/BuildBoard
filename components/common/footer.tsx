@@ -6,7 +6,6 @@ export default function Footer() {
     <footer className="border-t bg-muted/20">
       <div className="px-4 py-12 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 gap-10 md:gap-8 md:grid-cols-2 lg:grid-cols-5">
-          {/* Brand Section */}
           <div className="space-y-5 md:col-span-2 lg:col-span-2">
             <div className="flex items-center gap-3">
               <div className="size-10 rounded-xl bg-primary flex items-center justify-center">
@@ -22,7 +21,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Product Links */}
           <div>
             <h4 className="mb-5 text-base font-semibold tracking-tight">Discover</h4>
             <ul className="space-y-3.5 text-sm text-muted-foreground">
@@ -61,7 +59,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company Links */}
           <div>
             <h4 className="mb-5 text-base font-semibold tracking-tight">Company</h4>
             <ul className="space-y-3.5 text-sm text-muted-foreground">
@@ -100,7 +97,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Resources Links */}
           <div>
             <h4 className="mb-5 text-base font-semibold tracking-tight">Resources</h4>
             <ul className="space-y-3.5 text-sm text-muted-foreground">
@@ -140,7 +136,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t sm:mt-14">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div className="text-center sm:text-left">

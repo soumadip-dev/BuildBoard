@@ -3,10 +3,12 @@ import { StarIcon } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import VotingButtons from './voting-buttons';
-// import VotingButtons from './voting-buttons';
-// import { ProductType } from '@/types';
+import { InferSelectModel } from 'drizzle-orm';
+import { products } from '@/db/schema';
 
-export default function ProductCard({ product }) {
+type Product = InferSelectModel<typeof products>;
+
+export default function ProductCard({ product }: { product: Product }) {
   const hasVoted = false;
   return (
     <Link href={`/products/${product.slug}`}>
@@ -27,7 +29,7 @@ export default function ProductCard({ product }) {
               </div>
               <CardDescription>{product.description}</CardDescription>
             </div>
-            {/** Voting buttons */}
+
             <VotingButtons
               hasVoted={hasVoted}
               voteCount={product.voteCount}

@@ -3,8 +3,10 @@ import SectionHeader from '../common/section-header';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import ProductCard from '../products/product-card';
+import { getFeaturedProducts } from '@/lib/products/product-select';
 
 export default async function FeaturedProducts() {
+  const featuredProducts = await getFeaturedProducts();
   return (
     <section className="py-20 bg-muted/40">
       <div className="wrapper">
@@ -29,30 +31,3 @@ export default async function FeaturedProducts() {
     </section>
   );
 }
-
-export const featuredProducts = [
-  {
-    id: 'prod_001',
-    name: 'DevTool Pro',
-    slug: 'devtool-pro',
-    description: 'A simple tool to boost developer productivity.',
-    voteCount: 42,
-    tags: ['developer', 'productivity', 'tool'],
-  },
-  {
-    id: 'prod_002',
-    name: 'UI Kit X',
-    slug: 'ui-kit-x',
-    description: 'Reusable UI components for modern web apps.',
-    voteCount: 156,
-    tags: ['ui', 'design', 'react'],
-  },
-  {
-    id: 'prod_003',
-    name: 'API Monitor',
-    slug: 'api-monitor',
-    description: 'Monitor and track API uptime and performance.',
-    voteCount: 18,
-    tags: ['api', 'monitoring'],
-  },
-];
